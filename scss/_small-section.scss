@@ -1,0 +1,37 @@
+.small-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: minmax(200px, auto);
+  grid-auto-rows: 200px;
+  gap: 24px;
+  grid-column: 1/-1;
+  grid-row: 2/3;
+
+  &_second {
+    grid-row: 4/5;
+  }
+
+  &_third {
+    grid-row: 6/7;
+  }
+
+  &__content-box {
+    position: relative;
+    text-align: center;
+    background-color: #e7e7e7;
+
+    &::before {
+      content: attr(data-box-number);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .small-section {
+    gap: 15px;
+  }
+}
